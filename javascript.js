@@ -10,9 +10,21 @@
 
 const choice = ['Rock', 'Paper', 'Scissors'];
 
-
-function getComputerChoice(choice){
-    return choice[Math.floor(Math.random()*choice.length)];
+function getComputerChoice(){
+    pick = choice[Math.floor(Math.random()*choice.length)];
+    return pick;
 }
-console.log(getComputerChoice(choice));
 
+function playRound(computerSelection, playerSelection){
+    if (computerSelection == 'Scissors'){
+        console.log('Computer picks scissors, theyre smashed to fuck')
+    }  else if (computerSelection == 'Paper'){
+        console.log('Computer picks paper, it suffocates your rock')
+    }  else if (computerSelection == 'Rock'){
+        console.log('Computer also picks rock, its a draw')
+    }
+}
+
+const computerSelection = getComputerChoice();
+const playerSelection = 'Rock';
+console.log(playRound(computerSelection, playerSelection));
