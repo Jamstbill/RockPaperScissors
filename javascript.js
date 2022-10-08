@@ -71,17 +71,13 @@ function game(){
             console.log('Your score is:' + ' ' + userScore);
             console.log('Computer score is:' + ' ' + computerScore); 
        }    
-    }   
+    }      if(userScore > computerScore){
+        return ('YOU WON THE GAME ' + 'Your score is:' + userScore + ' ' + 'Computer score is:' + ' ' + computerScore);
+       } else if(computerScore > userScore){
+        return ('HAHAHA YOU LOST COS YOUR FUCKING USELESS ' + 'Your score is' + ' ' + userScore + ' ' + 'Computer score is:' + ' ' + computerScore)
+       } else if(userScore == computerScore){
+        return ('For fuck sake its a draw, play again?' + 'Your score is' + ' ' + userScore + ' ' + 'Computer score is:' + ' ' + computerScore)
+       }
 }
 
-
-// function declareWinner(userScore, computerScore){
-// if(userScore > computerScore){
-//     console.log('YOU WON THE GAME' + 'Your score is:' + userScore + ' ' + 'Computer score is:' + ' ' + computerScore);
-//    } else if(computerScore > userScore){
-//     console.log('HAHAHA YOU LOST COS YOUR FUCKING USELESS' + 'Your score is' + userScore + ' ' + 'Computer score is:' + ' ' + computerScore)
-//    } else if(userScore == computerScore){
-//     console.log('For fuck sake its a draw, play again?' + 'Your score is' + userScore + ' ' + 'Computer score is:' + ' ' + computerScore)
-//    }
-// }
 console.log(game());
