@@ -24,40 +24,54 @@ const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 
-rock.addEventListener('click',() => {
-    playRound('ROCK', getComputerChoice());
-})
-paper.addEventListener('click',() => {
-    playRound('PAPER', getComputerChoice());
-})
-scissors.addEventListener('click',() => {
-    playRound('SCISSORS', getComputerChoice());
-})
+// rock.addEventListener('click',() => {
+//     playRound('ROCK', getComputerChoice());
+// })
+// paper.addEventListener('click',() => {
+//     playRound('PAPER', getComputerChoice());
+// })
+// scissors.addEventListener('click',() => {
+//     playRound('SCISSORS', getComputerChoice());
+// })
 
+function getPlayerChoice(){
+    let playerChoice = prompt('Input your choice, Rock, Paper or Scissors');
+    return playerChoice.toUpperCase();
+}
 
 function playRound(playerChoice, computerChoice){
+    const result = document.querySelector('#results-container');
+    const p = document.createElement('p');
+
     if (playerChoice == 'ROCK' && computerChoice == 'PAPER'){
-        console.log('You lose! Paper beats Rock');
+        p.textContent = 'You lose! Paper beats Rock';
+        result.appendChild(p);
         return 'computerWin';
     } else if (playerChoice == 'ROCK' && computerChoice == 'SCISSORS'){
-        console.log('You win! Rock beats Scissors');
+        p.textContent = 'You win! Rock beats Scissors';
+        result.appendChild(p);
         return 'playerWin';
     } else if (playerChoice == 'PAPER' && computerChoice == 'ROCK'){
-        console.log('You win! Paper beats Rock');
+        p.textContent = 'You win! Paper beats Rock';
+        result.appendChild(p);
         return 'playerWin';
     } else if (playerChoice == 'PAPER' && computerChoice == 'SCISSORS'){
-        console.log('You lose! Scissors beats Paper');
+        p.textContent = 'You lose! Scissors beats Paper';
+        result.appendChild(p);
         return 'computerWin';
     } else if (playerChoice == 'SCISSORS' && computerChoice == 'ROCK'){
-        console.log('You lose! Rock beats Scissors');
+        p.textContent = 'You lose! Rock beats Scissors';
+        result.appendChild(p);
         return 'computerWin';
     } else if (playerChoice == 'SCISSORS' && computerChoice == 'PAPER'){
-        console.log('You win! Scissors beats Paper');
+        p.textContent = 'You win! Scissors beats Paper';
+        result.appendChild(p);
         return 'playerWin';
     } else if(playerChoice == computerChoice){
-        console.log('Its a draw!')
+        p.textContent = 'Its a draw!';
+        result.appendChild(p);
     } else{
-        console.log('Please enter Rock, Paper or Scissors');
+        p.textContent = 'Please enter Rock, Paper or Scissors';
     }
 }
 
@@ -73,23 +87,26 @@ function checkRoundWinner(result){
 
 
 const gameWinner = (playerScore, computerScore) => {
+    const winner = document.querySelector('#game-winner');
+    const p = document.createElement('p');
+
     if (playerScore > computerScore){
-        console.log('||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||');
-        console.log('CONGRATULATIONS! YOU WIN!')
+        p.textContent = 'CONGRATULATIONS! YOU WIN!';
+        winner.appendChild(p);
     } else if(playerScore < computerScore){
-        console.log('||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||');
-        console.log('YOU LOSE! COMPUTER WINS!')
+        p.textContent = 'YOU LOSE! COMPUTER WINS!';
+        winner.appendChild(p);
     } else{
-        console.log('||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||');
-        console.log('ITS A DRAW');
+        p.textContent = 'ITS A DRAW';
+        winner.appendChild(p);
     }
 }
 
 function playGame(){
-
-    let result = playRound(getPlayerChoice(), getComputerChoice());
-    checkRoundWinner(result);
-
+    for(i = 0; i < 5; i++){
+        let result = playRound(getPlayerChoice(), getComputerChoice());
+        checkRoundWinner(result);
+    }
     gameWinner(playerScore, computerScore);
 }
 
