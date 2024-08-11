@@ -19,10 +19,20 @@ function getComputerChoice(){
     return computerChoice.toUpperCase();
 }
 
-function getPlayerChoice(){
-    let playerChoice = prompt('Input your choice, Rock, Paper or Scissors');
-    return playerChoice.toUpperCase();
-}
+
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+
+rock.addEventListener('click',() => {
+    playRound('ROCK', getComputerChoice());
+})
+paper.addEventListener('click',() => {
+    playRound('PAPER', getComputerChoice());
+})
+scissors.addEventListener('click',() => {
+    playRound('SCISSORS', getComputerChoice());
+})
 
 
 function playRound(playerChoice, computerChoice){
@@ -76,30 +86,8 @@ const gameWinner = (playerScore, computerScore) => {
 }
 
 function playGame(){
-    let round = 1;
-    console.log(`Round number: ${round}`);
 
     let result = playRound(getPlayerChoice(), getComputerChoice());
-    checkRoundWinner(result);
-
-    round = round + 1;
-    result = playRound(getPlayerChoice(), getComputerChoice());
-    console.log(`Round number: ${round}`);
-    checkRoundWinner(result);
-
-    round = round + 1;
-    result = playRound(getPlayerChoice(), getComputerChoice());
-    console.log(`Round number: ${round}`);
-    checkRoundWinner(result);
-
-    round = round + 1;
-    result = playRound(getPlayerChoice(), getComputerChoice());
-    console.log(`Round number: ${round}`);
-    checkRoundWinner(result);
-
-    round = round + 1;
-    result = playRound(getPlayerChoice(), getComputerChoice());
-    console.log(`Round number: ${round}`);
     checkRoundWinner(result);
 
     gameWinner(playerScore, computerScore);
