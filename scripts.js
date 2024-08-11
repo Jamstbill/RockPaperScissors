@@ -19,10 +19,10 @@ function getComputerChoice(){
     return computerChoice.toUpperCase();
 }
 
-const sectionContainer = document.querySelector('#selection-container');
-const rock = document.querySelector('#rock');
-const paper = document.querySelector('#paper');
-const scissors = document.querySelector('#scissors');
+const sectionContainer = document.querySelector('.selection-container');
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
 
 rock.addEventListener('click',() => {
     playRound('ROCK', getComputerChoice());
@@ -36,68 +36,46 @@ scissors.addEventListener('click',() => {
 
 
 function playRound(playerChoice, computerChoice){
-    const info = document.querySelector('#info-container');
+    const info = document.querySelector('.info-container');
     const p = document.createElement('p');
     const p2 = document.createElement('p');
+    let result;
 
-    if (playerChoice == 'ROCK' && computerChoice == 'PAPER'){
-        p.textContent = 'You lose! Paper beats Rock';
-        info.appendChild(p);
-        info.appendChild(p2);
-        let result = 'computerWin';
-        checkRoundWinner(result);
-        p2.textContent = `Your score: ${playerScore}. Computer score: ${computerScore}`;
-
-    } else if (playerChoice == 'ROCK' && computerChoice == 'SCISSORS'){
-        p.textContent = 'You win! Rock beats Scissors';
-        info.appendChild(p);
-        info.appendChild(p2);
-        let result = 'playerWin';
-        checkRoundWinner(result);
-        p2.textContent = `Your score: ${playerScore}. Computer score: ${computerScore}`;
-
-    } else if (playerChoice == 'PAPER' && computerChoice == 'ROCK'){
-        p.textContent = 'You win! Paper beats Rock';
-        info.appendChild(p);
-        info.appendChild(p2);
-        let result = 'playerWin';
-        checkRoundWinner(result);
-        p2.textContent = `Your score: ${playerScore}. Computer score: ${computerScore}`;
-
-
-    } else if (playerChoice == 'PAPER' && computerChoice == 'SCISSORS'){
-        p.textContent = 'You lose! Scissors beats Paper';
-        info.appendChild(p);
-        info.appendChild(p2);
-        let result = 'computerWin';
-        checkRoundWinner(result);
-        p2.textContent = `Your score: ${playerScore}. Computer score: ${computerScore}`;
-
-
-    } else if (playerChoice == 'SCISSORS' && computerChoice == 'ROCK'){
-        p.textContent = 'You lose! Rock beats Scissors';
-        info.appendChild(p);
-        info.appendChild(p2);
-        let result = 'computerWin';
-        checkRoundWinner(result);
-        p2.textContent = `Your score: ${playerScore}. Computer score: ${computerScore}`;
-
-
-    } else if (playerChoice == 'SCISSORS' && computerChoice == 'PAPER'){
-        p.textContent = 'You win! Scissors beats Paper';
-        info.appendChild(p);
-        info.appendChild(p2);
-        let result = 'playerWin';
-        checkRoundWinner(result);
-        p2.textContent = `Your score: ${playerScore}. Computer score: ${computerScore}`;
-
-    } else if(playerChoice == computerChoice){
-        p.textContent = 'Its a draw!';
-        info.appendChild(p);
-    } else{
-        p.textContent = 'Please enter Rock, Paper or Scissors';
+    switch(playerChoice + '-' + computerChoice){
+        case ('ROCK-PAPER'):
+            p.textContent = 'You lose! Paper beats Rock';
+            result = 'computerWin';
+            break;
+        case ('ROCK-SCISSORS'):
+            p.textContent = 'You win! Rock beats Scissors';
+            result = 'playerWin';
+            break;
+        case ('PAPER-ROCK'):
+            p.textContent = 'You win! Paper beats Rock';
+            result = 'playerWin';
+            break;
+        case ('PAPER-SCISSORS'):
+            p.textContent = 'You lose! Scissors beats Paper';
+            result = 'computerWin';
+            break;
+        case ('SCISSORS-ROCK'):
+            p.textContent = 'You lose! Rock beats Scissors';    
+            result = 'computerWin';
+            break;
+        case ('SCISSORS-PAPER'):
+            p.textContent = 'You win! Scissors beats Paper';
+            result = 'playerWin';
+        default:
+            p.textContent = 'Its a draw!';
+            p2.textContent = `Your score: ${playerScore}. Computer score: ${computerScore}`;
     }
+
+    info.appendChild(p);
+    info.appendChild(p2);
+    checkRoundWinner(result);
+    p2.textContent = `Your score: ${playerScore}. Computer score: ${computerScore}`;
 }
+
 
 function checkRoundWinner(result){
     if (result == 'playerWin'){
@@ -112,7 +90,7 @@ function checkRoundWinner(result){
 }
 
 const gameWinner = (playerScore, computerScore) => {
-    const winner = document.querySelector('#game-winner');
+    const winner = document.querySelector('.game-winner');
     const p = document.createElement('p');
 
     if (playerScore > computerScore){

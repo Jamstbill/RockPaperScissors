@@ -1,3 +1,127 @@
-#game-winner p{
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;500&family=Permanent+Marker&display=swap');
+
+body{
+    background-image: url("images/1055726.png");
+    background-repeat: no-repeat;
+    font-family: "Permanent Marker", cursive;
+
+}
+
+.header{
+   text-align: center;
+   font-family: "Permanent Marker", cursive;
+   font-weight: 400;
+   font-style: normal;
+   color: #83016d;
+}
+
+.main-content{
+    display: flex;
+    border: 1px rgb(212, 0, 255) solid;
+    border-radius: 20px;
+    box-shadow:0 0 0 1em #f4aab9;
+    height: 600px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.playerSide{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.separator{
+    width: 10px;
+    background: linear-gradient(to right, #bd16a1, #ffffff, #ffcc00);
+    height: 80%;
+    align-self: center;
+}
+
+.computerSide{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.computerSelection{
+    border: 4px solid rgb(219, 115, 219);
+    border-radius: 15px;
+    height: 180px;
+    width: 180px;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url(images/question.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.selection-container{
+    display: flex;
+    width: 100%;
+    height: 210px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.selection-container button{
+    height: 180px;
+    width: 180px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.rock{
+    background-image: url(images/rock.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.paper{
+    background-image: url(images/paper.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.scissors{
+    background-image: url(images/scissors.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+button:hover{
+    box-shadow: rgba(242, 116, 253, 0.25) 0px 54px 55px, rgba(213, 1, 255, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(255, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.playerResults, .computerResults{
+    width: 60px;
+    text-align: center;
+    font-family: "Permanent Marker", cursive;
+    color: #83016d;
+    height: 20%;
+}
+
+.playerResults > p,
+.computerResults > p{
+    font-size: 40px;
+}
+
+.results-container{
+    border: 1px solid red;
+    color: #83016d;
+    font-size: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-winner p{
     color: red;
 }
