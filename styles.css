@@ -91,7 +91,7 @@ body{
     background-size: cover;
 }
 .scissors{
-    background-image: url(images/scissors.jpg);
+    background-image: url(images/scissors.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -114,14 +114,11 @@ button:hover{
 }
 
 .results-container{
-    border: 1px solid red;
     color: #83016d;
     font-size: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
-.game-winner p{
-    color: red;
-}
