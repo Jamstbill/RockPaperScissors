@@ -4,7 +4,6 @@ body{
     background-image: url("images/1055726.png");
     background-repeat: no-repeat;
     font-family: "Permanent Marker", cursive;
-
 }
 
 .header{
@@ -122,3 +121,9 @@ button:hover{
     text-align: center;
 }
 
+.selection-container .resetButton{
+    background-color: #de00ff;
+    font-family: "Permanent Marker", cursive;
+    font-size: 25px;
+    height: 50px;
+}
